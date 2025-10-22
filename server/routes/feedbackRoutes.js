@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Feedback = require('../models/Feedback');
 
-// POST /api/feedback → Save new feedback
 router.post('/', async (req, res) => {
   try {
     const { name, message } = req.body;
@@ -14,7 +13,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET /api/feedback → Return all feedbacks
 router.get('/', async (req, res) => {
   try {
     const feedbacks = await Feedback.find().sort({ createdAt: -1 });
